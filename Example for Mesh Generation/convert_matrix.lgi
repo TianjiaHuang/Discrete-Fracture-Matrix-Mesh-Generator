@@ -1,0 +1,10 @@
+# The active mesh object is selected and named 'my_cmo'
+read / avs / matrix_new.inp / my_cmo
+cmo / select / my_cmo
+
+# Dump the mesh object to the PFLOTRAN-compatible uge file
+quality / volume / lt 0.0
+dump / pflotran / matrix / my_cmo
+
+# Exit LaGriT
+finish

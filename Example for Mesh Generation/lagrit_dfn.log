@@ -1,0 +1,132 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V3.3.4   Linux          *                 
+*               *    Compiler Name: GNU                       *                 
+*               *    Compiler Version: 13.3.0                 *                 
+*               *    Date Compile: 2025/07/09                 *                 
+*               *    Run Time: 2025/Dec 14  16:27:24          *                 
+*               *    Manual:   https://lagrit.lanl.gov        *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+             LaGriT V3 LA-CC-15-069  https://github.com/lanl/LaGriT             
+  Copyright 2016. Triad National Security, LLC.  All rights reserved. This      
+  program was produced under U.S. Government contract 89233218CNA000001         
+  for Los Alamos National Laboratory (LANL), which is operated by Triad         
+  National Security, LLC for the U.S. Department of Energy/National Nuclear     
+  Security Administration.  All rights in the program are reserved by Triad     
+  National Security, LLC, and the U.S. Department of Energy/National Nuclear    
+  Security Administration. The Government is granted for itself and others      
+  acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license   
+  in this material to reproduce, prepare derivative works, distribute copies    
+  to the public, perform publicly and display publicly, and to permit others to 
+  do so. This software is open source and available under the BSD-3 License.    
+                               -----oOo-----                                    
+ 
+ 
+Output log file: lagrit.out                                                     
+Command log file: lagrit.log                                                    
+ 
+ Enter a command
+# The active mesh object is selected and named 'my_cmo'                         
+ Enter a command
+read/avs/dfn.inp/my_cmo                                                         
+                    0                    0
+geniee                                                                          
+ geniee: mesh has                    65  jtet loops, max cycle length=          
+                                                                               4
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: my_cmo                                         
+ 
+  1 Mesh Object name: my_cmo                                                    
+    number of nodes =          2392        number of elements =         4629    
+    dimensions geometry =         3        element type =                tri    
+    dimensions topology =         2        3 nodes      3 faces      3 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+ Enter a command
+cmo/select/my_cmo                                                               
+ Enter a command
+                                                                                
+# Dump the mesh object to the PFLOTRAN-compatible uge file                      
+ Enter a command
+quality/volume/lt 0.0                                                           
+ 
+epsilonvol:   1.4929014E-10                                                     
+---------------------------------------                                         
+element volumes b/w  0.1052E-01 and  0.1731E-01:       331                      
+element volumes b/w  0.1731E-01 and  0.2850E-01:      1992                      
+element volumes b/w  0.2850E-01 and  0.4692E-01:      1423                      
+element volumes b/w  0.4692E-01 and  0.7724E-01:       696                      
+element volumes b/w  0.7724E-01 and  0.1272E+00:       187                      
+min volume =   1.0518141E-02  max volume =   1.2715293E-01                      
+ 
+Found          0 elements lt    0.000000000                                     
+-----------------------------------------------------------                     
+      4629 total elements evaluated.                                            
+ 
+ Enter a command
+dump/pflotran/dfn/my_cmo                                                        
+***Construct Regular Sparse Matrix:2D***                                        
+ io_type =                    10
+Matbldtri: total neg       12 mincoef=  -5.0751955E-01 maxcoef=   1.8301211E+00 
+Negative coeff2d:        sort   edge     vor_coeff        row_node  col_node    
+Negative coeff2d:          1       210 -5.0751955E-01        35        59       
+Negative coeff2d:          2       368 -5.0751955E-01        59        35       
+Negative coeff2d:          3     15791 -2.7449486E-01      2294      2254       
+Negative coeff2d:          4     15524 -2.7449486E-01      2254      2294       
+Negative coeff2d:          5      9828 -5.0568286E-02      1412      1361       
+Negative coeff2d:          6      9480 -5.0568286E-02      1361      1412       
+Negative coeff2d:          7     10992 -2.8060610E-02      1580      1641       
+Negative coeff2d:          8     11412 -2.8060610E-02      1641      1580       
+Negative coeff2d:          9        25 -2.5531916E-03         6         4       
+Negative coeff2d:         10        17 -2.5531916E-03         4         6       
+Negative coeff2d:         11     16162 -1.6347222E-03      2349      2327       
+Negative coeff2d:         12     16019 -1.6347222E-03      2327      2349       
+------------                                                                    
+Matbldtri                                                                       
+Number of Nodes             =       2392                                        
+Max. Connection to a Node   =         12                                        
+Number of Area Coefficients =      16432                                        
+Minimum Voronoi area        =   1.1574526E-02                                   
+Maximum Voronoi area        =   2.4866871E-01                                   
+Minimum Voronoi edge length =  -5.0751955E-01                                   
+Maximum Voronoi edge length =   1.8301211E+00                                   
+Total   Voronoi area        =   1.5957815E+02                                   
+Total   Triangle area       =   1.5957815E+02                                   
+ 
+Matbldtri  writing PFLOTRAN format.                                             
+PFLOTRAN total CELL nodes =         2392                                        
+PFLOTRAN will filter zero coefs.                                                
+PFLOTRAN coefficient from matbld Aij/Xij  max  =   1.8301211E+00                
+PFLOTRAN filter = epsilon * abs(max Aij/Xij) :  1.0000000E-12  1.8301211E+00    
+PFLOTRAN coefficients: epsilon for zero filter =   1.8301211E-12                
+  -count nconn                 7020
+  -count nzero                    0
+  
+PFLOTRAN total matbld matrix coefficients   =     16432                         
+PFLOTRAN matrix  i>j (written)              =      7020                         
+PFLOTRAN matrix  i<=j (not written)        =       9412                         
+PFLOTRAN zero coefs < epsilon (not written) =         0                         
+ 
+PFLOTRAN total CONNECTIONS written         =       7020                         
+PFLOTRAN coefficient  Aij min              =  -3.9762185E-01                    
+PFLOTRAN coefficient  Aij max              =   7.0799045E-01                    
+ 
+*** SPARSE COEFFICIENT MATRIX for 2D SUCCESSFUL ***                             
+ 
+2D Matrix Coefficient file written with name dfn.uge                            
+ 
+ Enter a command
+                                                                                
+# Exit LaGriT                                                                   
+ Enter a command
+finish                                                                          
+LaGriT successfully completed                                                   

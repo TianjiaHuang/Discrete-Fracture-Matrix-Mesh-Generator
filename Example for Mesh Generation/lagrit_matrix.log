@@ -1,0 +1,164 @@
+ 
+ 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+*               *                                             *                 
+*               *    Program:  LaGriT V3.3.4   Linux          *                 
+*               *    Compiler Name: GNU                       *                 
+*               *    Compiler Version: 13.3.0                 *                 
+*               *    Date Compile: 2025/07/09                 *                 
+*               *    Run Time: 2025/Dec 14  16:27:25          *                 
+*               *    Manual:   https://lagrit.lanl.gov        *                 
+*               *                                             *                 
+*               * * * * * * * * * * * * * * * * * * * * * * * *                 
+ 
+                               -----oOo-----                                    
+             LaGriT V3 LA-CC-15-069  https://github.com/lanl/LaGriT             
+  Copyright 2016. Triad National Security, LLC.  All rights reserved. This      
+  program was produced under U.S. Government contract 89233218CNA000001         
+  for Los Alamos National Laboratory (LANL), which is operated by Triad         
+  National Security, LLC for the U.S. Department of Energy/National Nuclear     
+  Security Administration.  All rights in the program are reserved by Triad     
+  National Security, LLC, and the U.S. Department of Energy/National Nuclear    
+  Security Administration. The Government is granted for itself and others      
+  acting on its behalf a nonexclusive, paid-up, irrevocable worldwide license   
+  in this material to reproduce, prepare derivative works, distribute copies    
+  to the public, perform publicly and display publicly, and to permit others to 
+  do so. This software is open source and available under the BSD-3 License.    
+                               -----oOo-----                                    
+ 
+ 
+Output log file: lagrit.out                                                     
+Command log file: lagrit.log                                                    
+ 
+ Enter a command
+# The active mesh object is selected and named 'my_cmo'                         
+ Enter a command
+read/avs/matrix_new.inp/my_cmo                                                  
+                    0                    0
+geniee                                                                          
+finish                                                                          
+cmo/status/brief                                                                
+ 
+The current-mesh-object(CMO) is: my_cmo                                         
+ 
+  1 Mesh Object name: my_cmo                                                    
+    number of nodes =         36961        number of elements =       201145    
+    dimensions geometry =         3        element type =                tet    
+    dimensions topology =         3        4 nodes      4 faces      6 edges    
+    boundary flag =        16000000        status =                   active    
+ 
+ 
+finish                                                                          
+ Enter a command
+cmo/select/my_cmo                                                               
+ Enter a command
+                                                                                
+# Dump the mesh object to the PFLOTRAN-compatible uge file                      
+ Enter a command
+quality/volume/lt 0.0                                                           
+ 
+epsilonvol:   2.2204460E-10                                                     
+---------------------------------------                                         
+element volumes b/w  0.2558E-04 and  0.1056E-03:         7                      
+element volumes b/w  0.1056E-03 and  0.4357E-03:       202                      
+element volumes b/w  0.4357E-03 and  0.1798E-02:     17536                      
+element volumes b/w  0.1798E-02 and  0.7421E-02:    161554                      
+element volumes b/w  0.7421E-02 and  0.3063E-01:     21846                      
+
+SparseMatrix initialize epsilon to 1.000000e-08
+SparseMatrix using Epsilon 1.000000e-08
+min volume =   2.5579101E-05  max volume =   3.0626757E-02                      
+ 
+Found          0 elements lt    0.000000000                                     
+-----------------------------------------------------------                     
+    201145 total elements evaluated.                                            
+ 
+ Enter a command
+dump/pflotran/matrix/my_cmo                                                     
+ 
+*** Construct and Compress Sparse Matrix:3D ***                                 
+   *** Compress Area Coefficient Values ***                                     
+ 
+AMatbld3d_stor: Matrix compress_eps:  0.1000000E-07                             
+AMatbld3d_stor: Local epsilon:  0.1000000E-14                                   
+AMatbld3d_stor: *****Negative Coefficients ******                               
+AMatbld3d_stor: Total Number of Negative Coefficients        35                 
+AMatbld3d_stor: Number of Significant Negative Coefs        35                  
+AMatbld3d_stor: Number of 'zero' (< 10e-8 *max) coefs         0                 
+Negative coef at row       17  Column       25 with value  -1.4004934E-03       
+Negative coef at row       59  Column    31026 with value  -2.3516481E-02       
+Negative coef at row      931  Column    16483 with value  -2.0577546E-04       
+Negative coef at row     1649  Column    36544 with value  -3.3189422E-05       
+Negative coef at row     1676  Column    12012 with value  -4.6035463E-05       
+Negative coef at row     1883  Column     3734 with value  -4.6269917E-03       
+Negative coef at row     1974  Column     3551 with value  -3.1344295E-04       
+Negative coef at row     1991  Column     3551 with value  -2.2310173E-03       
+Negative coef at row     2281  Column     3079 with value  -4.4548978E-03       
+Negative coef at row     2969  Column     3001 with value  -1.2323335E-04       
+Negative coef at row     3127  Column     3197 with value  -1.7629133E-03       
+Negative coef at row     3579  Column     3594 with value  -5.3735962E-04       
+Negative coef at row     3942  Column     3943 with value  -2.0263625E-03       
+Negative coef at row     4106  Column     4153 with value  -3.5226580E-04       
+Negative coef at row     4565  Column     4588 with value  -5.8748078E-04       
+Negative coef at row     4588  Column     4625 with value  -1.4095786E-03       
+Negative coef at row     4649  Column    14277 with value  -1.9121415E-05       
+Negative coef at row     4686  Column     4724 with value  -2.3215073E-03       
+Negative coef at row     4739  Column     4777 with value  -1.1509554E-03       
+Negative coef at row     4765  Column     4782 with value  -8.7352783E-03       
+Negative coef at row     4925  Column     4958 with value  -1.8201944E-04       
+Negative coef at row     5553  Column     5597 with value  -6.4831101E-04       
+Negative coef at row     5578  Column     5623 with value  -1.6732406E-03       
+Negative coef at row     6358  Column     6391 with value  -3.8085318E-03       
+Negative coef at row     7365  Column     7369 with value  -5.6297197E-03       
+Negative coef at row     7433  Column     7463 with value  -2.9312214E-03       
+Negative coef at row     7701  Column    17374 with value  -3.0356517E-05       
+Negative coef at row     8828  Column     8862 with value  -2.7141861E-03       
+Negative coef at row     9249  Column     9278 with value  -3.7914916E-04       
+Negative coef at row     9259  Column     9307 with value  -4.8670005E-04       
+Negative coef at row     9495  Column     9535 with value  -7.9545940E-05       
+Negative coef at row     9858  Column     9864 with value  -1.1852256E-03       
+Negative coef at row    10211  Column    10256 with value  -1.2892992E-04       
+Negative coef at row    10211  Column    10261 with value  -6.0601535E-03       
+Negative coef at row    21322  Column    30865 with value  -5.6562652E-04       
+cmo/addatt/my_cmo/ccoef/VDOUBLE/scalar/nnodes/linear/permanent/afgx/0.0/        
+finish                                                                          
+cmo/addatt/my_cmo/ij_ccoef/VINT/scalar/nnodes/linear/permanent/afgx/0.0/        
+finish                                                                          
+AMatbld3d_stor: npoints =    36961  ncoefs =     530151                         
+AMatbld3d_stor: Number of unique coefs =    244795                              
+AMatbld3d_stor: Maximum num. connections to a node =         26                 
+PFLOTRAN total CELL nodes =        36961                                        
+AMatbld3d_stor: Volume min =   4.6066153E-04                                    
+AMatbld3d_stor: Volume max =   8.3770855E-02                                    
+AMatbld3d_stor: Total Volume:   1.0000000E+03                                   
+AMatbld3d_stor: abs(Aij/xij) min =   0.0000000E+00                              
+AMatbld3d_stor: abs(Aij/xij) max =   6.8369656E-01                              
+AMatbld3d_stor: (Aij/xij) max =   2.3516481E-02                                 
+AMatbld3d_stor: (Aij/xij) min =  -6.8369656E-01                                 
+PFLOTRAN will filter zero coefs.                                                
+PFLOTRAN coefficient from matbld Aij/Xij  max  =   2.3516481E-02                
+PFLOTRAN filter = epsilon * abs(max Aij/Xij) :  1.0000000E-12  2.3516481E-02    
+PFLOTRAN coefficients: epsilon for zero filter =   2.3516481E-14                
+  -count nconn               246595
+  -count nzero                    0
+  
+PFLOTRAN total matbld matrix coefficients   =    530151                         
+PFLOTRAN matrix  i>j (written)              =    246595                         
+PFLOTRAN matrix  i<=j (not written)        =     283556                         
+PFLOTRAN zero coefs < epsilon (not written) =         0                         
+ 
+PFLOTRAN total CONNECTIONS written         =     246595                         
+PFLOTRAN coefficient  Aij min              =  -1.6490181E-02                    
+PFLOTRAN coefficient  Aij max              =   1.6307340E-01                    
+AMatbld3d_stor Matrix coefficient values stored as scalar area/distance         
+ 
+*** SPARSE COEFFICIENT MATRIX for PFLOTRAN SUCCESSFUL ***                       
+ 
+3D Matrix Coefficient file written with name matrix.uge                         
+ 
+ Enter a command
+                                                                                
+# Exit LaGriT                                                                   
+ Enter a command
+finish                                                                          
+LaGriT successfully completed                                                   
